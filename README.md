@@ -11,7 +11,7 @@
 
 - ###### Anyone can read about the sefety instructions and past disasters.
 - ###### Rescue teams can register themselves so that thier help can be reached to numbers of people.
-- ###### Anyone can donote(money) to the traving disaster of past distasters.
+- ###### Anyone can donote(money) to the current disaster of past distasters.
 
 
 
