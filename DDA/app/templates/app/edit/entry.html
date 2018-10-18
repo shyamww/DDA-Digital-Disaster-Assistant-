@@ -1,0 +1,26 @@
+
+{% extends 'app/base.html' %}
+
+
+{% block title %}
+ addEntry
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+      <h2>Add Entry</h2>
+
+      <form method="post">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+          <input type="submit" value="Save">
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

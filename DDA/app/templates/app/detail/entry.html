@@ -1,0 +1,22 @@
+
+
+{% extends 'app/base.html' %}
+
+
+{% block title %}
+ camp{{ entries.id }}
+{% endblock %}
+
+{% block body %}
+
+
+      <h2> ENTRIES </h2>
+      <h6>{{ entries.type }}</h6>
+      <h6>{{ entries.country }}</h6>
+      <h6>{{ entries.state }}</h6>
+       <h6>{{ entries.local }}</h6>
+       <p>{{ entries.discription }}</p>
+
+
+
+{% endblock %}

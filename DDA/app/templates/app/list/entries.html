@@ -1,0 +1,21 @@
+
+{% extends 'app/base.html' %}
+
+
+{% block title %}
+ camp
+{% endblock %}
+
+{% block body %}
+
+
+      <h2> ENTRIES </h2>
+      <ul>
+        {% for entry in entries %}
+            <li>{{ entry.state }}</li>
+        {% endfor %}
+    </ul>
+
+
+
+{% endblock %}
