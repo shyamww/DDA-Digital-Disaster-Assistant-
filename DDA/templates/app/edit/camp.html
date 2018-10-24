@@ -1,0 +1,35 @@
+
+{% extends 'app/base.html' %}
+
+
+{% block title %}
+ addCamp
+{% endblock %}
+
+{% block body %}
+
+<div>
+    <br>
+ <div class="col-md-8 col-md-offset-2" >
+  <div class="panel panel-default">
+   <div class="panel-body">
+
+      <h2>Add Camp</h2>
+
+       <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+              {%include 'app/edit/form-template.html' %}
+          <div class="form-group">
+              <div class="col-sm-offset-6 col-sm-10">
+                  <button type="submit" class="btn btn-success">SUBMIT</button>
+              </div>
+          </div>
+      </form>
+
+    </div>
+  </div>
+ </div>
+</div>
+
+{% endblock %}

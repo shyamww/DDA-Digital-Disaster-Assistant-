@@ -1,0 +1,107 @@
+
+{% extends 'app/base.html' %}
+
+
+{% block title %}
+ camp
+{% endblock %}
+
+{% block body %}
+
+
+
+
+
+<br>
+<br>
+<br>
+
+<div class="container">
+
+     <div class="raw">
+         <div class="col-md-12 col-md-offset-0" >
+             <div class="panel panel-default">
+
+
+
+                   <div class="panel-body" style="background-color:#FAFAD2" >
+
+                        <div class="raw">
+
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th> S.No</th>
+                                  <th> Name</th>
+                                  <th> Items </th>
+                                  <th> Facility </th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+
+                              {% for camp in camps %}
+                                <tr>
+                                  <td>{{ forloop.counter  }}</td>
+                                  <td>{{camp.name}}</td>
+                                  <td>{{camp.items}}</td>
+                                  <td>{{camp.facility}}</td>
+
+                                </tr>
+
+
+                               {% endfor %}
+                               </tbody>
+                            </table>
+
+                        </div>
+
+                   </div>
+
+
+             </div>
+
+         </div>
+
+     </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <h2> CAMPS </h2>
+      <ul>
+        {% for camp in camps %}
+            <li>{{ camp.name }}</li>
+        {% endfor %}
+    </ul>
+
+
+
+{% endblock %}

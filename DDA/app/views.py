@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
 from app.models import Entry, Camp
+from django.db.models import Q
+from django.contrib import messages
 
 
 class CampList(ListView):
@@ -10,7 +12,7 @@ class CampList(ListView):
 
 
 class EntryList(ListView):
-    queryset = Entry.objects.all()
+    model = Entry
     template_name = 'app/list/entries.html'
     context_object_name = 'entries'
 
@@ -30,14 +32,40 @@ class EntryDetail(DetailView):
 class CampCreate(CreateView):
     queryset = Camp.objects.all()
     template_name = 'app/edit/camp.html'
-    fields = ['name', 'item', 'facility']
+    fields = ['name', 'location', 'items', 'facility']
 
 
 class EntryCreate(CreateView):
     queryset = Entry.objects.all()
     template_name = 'app/edit/entry.html'
-    fields = ['type', 'country', 'state', 'local', 'discription']
+    fields = ['type', 'country', 'state', 'local', 'discription', 'photo', 'camp']
 
+
+def search(request):
+    template = 'app/search.html'
+    if request.method == 'POST':
+        srch = request.POST['search']
+
+        if srch:
+            match = Entry.objects.filter(Q(state__icontains=srch)
+                                         | Q(country__icontains=srch)
+                                         | Q(local__icontains=srch)
+                                         )
+            context = {
+                'entries': match,
+
+            }
+
+            if match:
+                return render(request, 'app/list/entries.html', context)
+            else:
+                messages.error(request, 'not found.')
+        else:
+            messages.error(request, 'search by country,state,local')
+    return render(request, template)
+
+
+print(Entry.objects.get(pk=1).camp.count())
 
 
 

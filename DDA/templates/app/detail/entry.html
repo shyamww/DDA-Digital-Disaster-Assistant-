@@ -1,0 +1,91 @@
+
+
+{% extends 'app/base.html' %}
+
+
+{% block title %}
+ camp{{ entries.id }}
+{% endblock %}
+
+{% block body %}
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+<div class="container">
+
+     <div class="raw">
+         <div class="col-md-12 col-md-offset-0" >
+             <div class="panel panel-default">
+
+                 <div class="panel-heading"  >
+                          <div class="row">
+                             <div class="col-md-2"><p class="text-center">  year   </p></div>
+                             <div class="col-md-6"><p class="text-center">   {{ entries.type }}   </p></div>
+                              <div class="col-md-4"><p class="text-center">   {{ entries.country }}-{{ entries.state}}   </p></div>
+
+
+                          </div>
+                 </div>
+
+                   <div class="panel-body" style="background-color:#FAFAD2" >
+
+                        <div class="raw">
+
+                             <div class="col-md-4">
+                               <img src="{{MEDIA_URL}}{{entries.photo }}" width="330px" height="250px">
+                             </div>
+
+                             <div class="col-md-8" style="background-color:#F5F5DC">
+
+                             <p>{{ entries.discription }}</p>
+                                 <a href="#"> CAMPS</a>
+                             </div>
+
+                        </div>
+
+                   </div>
+
+
+             </div>
+
+         </div>
+
+     </div>
+
+
+</div>
+
+
+
+<br>
+<br>
+<br>
+
+
+
+       <p>{{ entries.camp.count }}</p>
+
+{% for camp in entries.camp.all %}
+ {{camp.name}}
+<br>
+ {{request.path}}
+<br>
+{%endfor%}
+
+
+      <a href="{{MEDIA_URL}}{{entries.photo}}">{{ entries.photo }}</a>
+
+
+
+{% endblock %}
