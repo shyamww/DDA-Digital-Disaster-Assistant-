@@ -6,7 +6,7 @@ from app import views
 
 urlpatterns = [
     # home/ ['']
-    path('', TemplateView.as_view(template_name='app/home.html'), name='home'),
+    path('', TemplateView.as_view(template_name='app/home.html'), name='base'),
     path('home/', TemplateView.as_view(template_name='app/home.html'), name='home'),
     # home/prepare
     path('home/prepare/', TemplateView.as_view(template_name='app/prepare.html'), name='prepare'),
@@ -42,3 +42,15 @@ urlpatterns = [
 
 
 ]
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,7 +38,7 @@ class CampCreate(CreateView):
 class EntryCreate(CreateView):
     queryset = Entry.objects.all()
     template_name = 'app/edit/entry.html'
-    fields = ['type', 'country', 'state', 'local', 'discription', 'photo', 'camp']
+    fields = ['year', 'type', 'country', 'state', 'local', 'discription', 'photo', 'camp']
 
 
 def search(request):
@@ -50,6 +50,8 @@ def search(request):
             match = Entry.objects.filter(Q(state__icontains=srch)
                                          | Q(country__icontains=srch)
                                          | Q(local__icontains=srch)
+                                         | Q(year__icontains=srch)
+                                         | Q(type__icontains=srch)
                                          )
             context = {
                 'entries': match,
